@@ -44,6 +44,20 @@ ament_target_dependencies(greeter rclcpp rosidl_default_runtime)
 # Add a dependency on the locally-defined messages
 rosidl_target_interfaces(greeter ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
+ament_export_dependencies(ament_cmake)
+ament_export_dependencies(rclcpp)
+ament_export_dependencies(class_loader)
+
+ament_export_include_directories(include)
+
+ament_export_libraries(greeter_cm_component)
+
+# Install the component header file
+install(DIRECTORY
+  include/greeter_custom_msg
+  DESTINATION include
+  )
+
 # Install the component library
 install(TARGETS
   greeter_cm_component

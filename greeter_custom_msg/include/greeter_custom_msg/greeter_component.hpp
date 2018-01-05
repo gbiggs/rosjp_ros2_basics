@@ -1,7 +1,7 @@
 // Copyright 2018 Geoffrey Biggs
 
-#if !defined GREETER_ROS2_STYLE__GREETER_NODE_HPP_
-#define GREETER_ROS2_STYLE__GREETER_NODE_HPP_
+#if !defined GREETER_CUSTOM_MSG__GREETER_NODE_HPP_
+#define GREETER_CUSTOM_MSG__GREETER_NODE_HPP_
 
 #if __cplusplus
 extern "C" {
@@ -44,7 +44,7 @@ extern "C" {
 #include <rclcpp/rclcpp.hpp>
 #include "greeter_custom_msg/msg/greeting.hpp"
 
-namespace greeter_ros2_style
+namespace greeter_custom_msg
 {
 
 class Greeter : public rclcpp::Node
@@ -61,6 +61,6 @@ private:
   void broadcast_greeting();
 };
 
-} // namespace greeter_ros2_style
+} // namespace greeter_custom_msg
 
-#endif // GREETER_ROS2_STYLE__GREETER_NODE_HPP_
+#endif // GREETER_CUSTOM_MSG__GREETER_NODE_HPP_

@@ -11,7 +11,7 @@
 
 using namespace std::chrono_literals;
 
-namespace greeter_ros2_style
+namespace greeter_custom_msg
 {
 
 Greeter::Greeter()
@@ -39,6 +39,6 @@ void Greeter::broadcast_greeting()
   ++greeting_->count;
 }
 
-} // namespace greeter_ros2_style
+} // namespace greeter_custom_msg
 
-CLASS_LOADER_REGISTER_CLASS(greeter_ros2_style::Greeter, rclcpp::Node)
+CLASS_LOADER_REGISTER_CLASS(greeter_custom_msg::Greeter, rclcpp::Node)

@@ -37,6 +37,20 @@ add_executable(displayer src/displayer.cpp)
 target_link_libraries(displayer displayer_component)
 ament_target_dependencies(displayer rclcpp std_msgs)
 
+ament_export_dependencies(ament_cmake)
+ament_export_dependencies(rclcpp)
+ament_export_dependencies(class_loader)
+
+ament_export_include_directories(include)
+
+ament_export_libraries(displayer_component)
+
+# Install the component header file
+install(DIRECTORY
+  include/displayer
+  DESTINATION include
+  )
+
 # Install the component library
 install(TARGETS
   displayer_component

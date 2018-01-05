@@ -37,6 +37,12 @@ add_executable(greeter src/greeter.cpp)
 target_link_libraries(greeter greeter_r2s_component)
 ament_target_dependencies(greeter rclcpp std_msgs)
 
+# Install the component header file
+install(DIRECTORY
+  include/greeter_ros2_style
+  DESTINATION include
+  )
+
 # Install the component library
 install(TARGETS
   greeter_r2s_component
