@@ -34,6 +34,7 @@ void GreetingServer::send_greeting(
   const std::shared_ptr<RequestGreeting::Request> request,
   const std::shared_ptr<RequestGreeting::Response> response)
 {
+  (void)request_header;
   response->greeting = "Hello, " + request->name;
   RCLCPP_INFO(
     this->get_logger(),
@@ -41,4 +42,4 @@ void GreetingServer::send_greeting(
     response->greeting.c_str());
 }
 
-}; // namespace greeting_server
+} // namespace greeting_server
