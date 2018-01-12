@@ -47,16 +47,20 @@ extern "C" {
 namespace greeter_ros2_style
 {
 
+// ノードを実装するクラス
 class Greeter : public rclcpp::Node
 {
 public:
+  // クラスのシンボルをエクスポートする
   GREETER_PUBLIC
   Greeter();
 
 private:
+  // パブリッシャーとタイマーを持つ変数
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
   rclcpp::TimerBase::SharedPtr timer_;
 
+  // ノードの振る舞えを実装するメンバー関数
   void broadcast_greeting();
 };
 
