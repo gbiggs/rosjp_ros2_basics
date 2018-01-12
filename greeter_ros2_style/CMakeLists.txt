@@ -15,8 +15,8 @@ endif()
 # 依存するパッケージを探す
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(class_loader REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(class_loader REQUIRED) # Needed to make loading the component dynamically easy
 
 include_directories(include)
 
@@ -38,6 +38,17 @@ add_executable(greeter src/greeter.cpp)
 target_link_libraries(greeter greeter_component)
 # 実行ファイルのコンパイルターゲットに依存パッケージの情報を追加する
 ament_target_dependencies(greeter rclcpp std_msgs)
+
+# 本パッケージが利用するパッケージの情報を他のパッケージにエクスポートする
+ament_export_dependencies(ament_cmake)
+ament_export_dependencies(rclcpp)
+ament_export_dependencies(class_loader)
+ament_export_dependencies(std_msgs)
+
+ament_export_include_directories(include)
+
+# 本パッケージが提供する再利用可能なコンパイルターゲットの情報をエクスポートする
+ament_export_libraries(displayer_component)
 
 # コンポーネントノードのヘッダーファイルをインストールする
 install(DIRECTORY
