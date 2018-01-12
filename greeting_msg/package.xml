@@ -4,7 +4,7 @@
   <name>greeting_msg</name>
   <version>1.0.0</version>
   <description>挨拶メッセージ型</description>
-  <maintainer email="bob@example.com">ボブ</maintainer>
+  <maintainer email="git@killbots.net">Geoffrey Biggs</maintainer>
   <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

@@ -4,7 +4,7 @@
   <name>greeter</name>
   <version>1.0.0</version>
   <description>アイサツくん</description>
-  <maintainer email="bob@killbots.net">ボブ</maintainer>
+  <maintainer email="git@killbots.net">Geoffrey Biggs</maintainer>
   <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
