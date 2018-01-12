@@ -12,7 +12,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(class_loader REQUIRED)
-find_package(std_msgs REQUIRED)
+find_package(greeting_msg REQUIRED)
 
 include_directories(include)
 
@@ -21,18 +21,18 @@ target_compile_definitions(displayer_component PRIVATE "DISPLAYER_BUILDING_DLL")
 ament_target_dependencies(displayer_component
   rclcpp
   class_loader
-  std_msgs
+  greeting_msg
   )
 rclcpp_register_node_plugins(displayer_component "displayer::Displayer")
 
 add_executable(displayer src/displayer.cpp)
 target_link_libraries(displayer displayer_component)
-ament_target_dependencies(displayer rclcpp std_msgs)
+ament_target_dependencies(displayer rclcpp greeting_msg)
 
 ament_export_dependencies(ament_cmake)
 ament_export_dependencies(rclcpp)
 ament_export_dependencies(class_loader)
-ament_export_dependencies(std_msgs)
+ament_export_dependencies(greeting_msg)
 
 ament_export_include_directories(include)
 

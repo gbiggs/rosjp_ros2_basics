@@ -13,13 +13,15 @@ namespace displayer
 Displayer::Displayer()
 : Node("displayer")
 {
-  sub_ = this->create_subscription<std_msgs::msg::String>(
+  sub_ = this->create_subscription<greeting_msg::msg::Greeting>(
     "greeting", std::bind(&Displayer::display_greeting, this, _1));
 }
 
-void Displayer::display_greeting(const std_msgs::msg::String::SharedPtr msg)
+void Displayer::display_greeting(const greeting_msg::msg::Greeting::SharedPtr msg)
 {
-  RCLCPP_INFO(this->get_logger(), "Received greeting '%s'", msg->data.c_str());
+  RCLCPP_INFO(
+    this->get_logger(), "Received greeting '%s %s %d'",
+    msg->hello_text.c_str(), msg->world_name.c_str(), msg->count);
 }
 
 } // namespace displayer

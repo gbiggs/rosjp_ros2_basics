@@ -40,7 +40,7 @@ extern "C" {
 #endif
 
 #include <rclcpp/rclcpp.hpp>
-#include <std_msgs/msg/string.hpp>
+#include <greeting_msg/msg/greeting.hpp>
 
 namespace displayer
 {
@@ -52,9 +52,9 @@ public:
   Displayer();
 
 private:
-  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_;
+  rclcpp::Subscription<greeting_msg::msg::Greeting>::SharedPtr sub_;
 
-  void display_greeting(const std_msgs::msg::String::SharedPtr msg);
+  void display_greeting(const greeting_msg::msg::Greeting::SharedPtr msg);
 };
 
 } // namespace displayer
