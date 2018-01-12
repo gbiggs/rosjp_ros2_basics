@@ -56,7 +56,7 @@ extern "C" {
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_lifecycle/lifecycle_node.hpp>
 #include <rclcpp_lifecycle/lifecycle_publisher.hpp>
-#include <greeter_custom_msg/msg/greeting.hpp>
+#include <greeting_msg/msg/greeting.hpp>
 
 namespace managed_greeter
 {
@@ -68,9 +68,9 @@ public:
   Greeter();
 
 private:
-  rclcpp_lifecycle::LifecyclePublisher<greeter_custom_msg::msg::Greeting>::SharedPtr pub_;
+  rclcpp_lifecycle::LifecyclePublisher<greeting_msg::msg::Greeting>::SharedPtr pub_;
   rclcpp::TimerBase::SharedPtr timer_;
-  greeter_custom_msg::msg::Greeting::SharedPtr greeting_;
+  greeting_msg::msg::Greeting::SharedPtr greeting_;
 
   rcl_lifecycle_transition_key_t on_configure(const rclcpp_lifecycle::State &);
   rcl_lifecycle_transition_key_t on_activate(const rclcpp_lifecycle::State &);

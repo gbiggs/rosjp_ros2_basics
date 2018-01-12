@@ -11,7 +11,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(greeter_custom_msg REQUIRED)
+find_package(greeting_msg REQUIRED)
 find_package(class_loader REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
@@ -22,7 +22,7 @@ add_library(managed_greeter_component SHARED src/managed_greeter_component.cpp)
 target_compile_definitions(managed_greeter_component PRIVATE "GREETER_BUILDING_DLL")
 ament_target_dependencies(managed_greeter_component
   rclcpp
-  greeter_custom_msg
+  greeting_msg
   class_loader
   lifecycle_msgs
   rclcpp_lifecycle
@@ -33,7 +33,7 @@ add_executable(managed_greeter src/managed_greeter.cpp)
 target_link_libraries(managed_greeter managed_greeter_component)
 ament_target_dependencies(managed_greeter
   rclcpp
-  greeter_custom_msg
+  greeting_msg
   lifecycle_msgs
   rclcpp_lifecycle
   )

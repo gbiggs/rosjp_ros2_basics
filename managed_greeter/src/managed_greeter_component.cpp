@@ -20,7 +20,7 @@
 #include <class_loader/class_loader_register_macro.h>
 #include <rosidl_generator_cpp/message_initialization.hpp>
 #include <lifecycle_msgs/msg/transition.hpp>
-#include <greeter_custom_msg/msg/greeting.hpp>
+#include <greeting_msg/msg/greeting.hpp>
 
 using namespace std::chrono_literals;
 
@@ -38,9 +38,9 @@ rcl_lifecycle_transition_key_t Greeter::on_configure(const rclcpp_lifecycle::Sta
   RCLCPP_INFO(this->get_logger(), "Configuring node");
 
   // Initialise the node's data
-  pub_ = create_publisher<greeter_custom_msg::msg::Greeting>("greeting");
+  pub_ = create_publisher<greeting_msg::msg::Greeting>("greeting");
   timer_ = create_wall_timer(1s, std::bind(&Greeter::broadcast_greeting, this));
-  greeting_ = std::make_shared<greeter_custom_msg::msg::Greeting>(
+  greeting_ = std::make_shared<greeting_msg::msg::Greeting>(
     rosidl_generator_cpp::MessageInitialization::ZERO);
   greeting_->hello_text = "hello";
   greeting_->world_name = "world";
