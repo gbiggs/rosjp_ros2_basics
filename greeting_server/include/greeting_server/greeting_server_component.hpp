@@ -65,8 +65,7 @@ using RequestGreeting = request_greeting_service::srv::RequestGreeting;
 class GreetingServer : public rclcpp::Node
 {
 public:
-  GREETING_SERVER_PUBLIC
-  GreetingServer();
+  GREETING_SERVER_PUBLIC GreetingServer();
 
 private:
   rclcpp::Service<RequestGreeting>::SharedPtr server_;
