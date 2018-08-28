@@ -14,7 +14,7 @@
 
 #include "greeter/greeter_component.hpp"
 
-#include <class_loader/class_loader_register_macro.h>
+#include <class_loader/register_macro.hpp>
 #include <rosidl_generator_cpp/message_initialization.hpp>
 #include <chrono>
 #include <memory>

@@ -62,8 +62,7 @@ namespace greeter
 class Greeter : public rclcpp::Node
 {
 public:
-  GREETER_PUBLIC
-  Greeter();
+  GREETER_PUBLIC Greeter();
 
 private:
   rclcpp::Publisher<greeting_msg::msg::Greeting>::SharedPtr pub_;

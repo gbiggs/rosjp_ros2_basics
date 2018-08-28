@@ -62,8 +62,7 @@ namespace displayer
 class Displayer : public rclcpp::Node
 {
 public:
-  DISPLAYER_PUBLIC
-  Displayer();
+  DISPLAYER_PUBLIC Displayer();
 
 private:
   rclcpp::Subscription<greeting_msg::msg::Greeting>::SharedPtr sub_;
