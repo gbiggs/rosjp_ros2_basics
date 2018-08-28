@@ -64,8 +64,7 @@ class Greeter : public rclcpp::Node
 {
 public:
   // クラスのシンボルをエクスポートする
-  GREETER_PUBLIC
-  Greeter();
+  GREETER_PUBLIC Greeter();
 
 private:
   // パブリッシャーとタイマーを持つ変数

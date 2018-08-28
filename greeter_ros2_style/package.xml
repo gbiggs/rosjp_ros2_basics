@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>greeter_ros2_style</name>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <description>ROSJPのROS 2講習会ようのサンプルソース：ROS2形式のメッセージ送信ノード</description>
   <maintainer email="git@killbots.net">Geoffrey Biggs</maintainer>
   <license>Apache License 2.0</license>

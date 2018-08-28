@@ -16,7 +16,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
-#include <class_loader/class_loader_register_macro.h>
+#include <class_loader/register_macro.hpp>
 #include <chrono>
 #include <memory>
 
