@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     // シャットダウンされたかどうか確認する
     if (!rclcpp::ok()) {
       RCLCPP_ERROR(node->get_logger(), "Interrupted while waiting for action server.");
+      rclcpp::shutdown();
       return 1;
     }
     RCLCPP_INFO(node->get_logger(), "Waiting for action server...");
@@ -52,12 +53,14 @@ int main(int argc, char *argv[])
   if (rclcpp::spin_until_future_complete(node, goal_handle_future) !=
       rclcpp::executor::FutureReturnCode::SUCCESS) {
     RCLCPP_ERROR(node->get_logger(), "Send goal call failed");
+    rclcpp::shutdown();
     return 1;
   }
 
   rclcpp_action::ClientGoalHandle<ProcessGreeting>::SharedPtr goal_handle = goal_handle_future.get();
   if (!goal_handle) {
     RCLCPP_ERROR(node->get_logger(), "Goal was rejected by server");
+    rclcpp::shutdown();
     return 1;
   }
 
@@ -67,6 +70,7 @@ int main(int argc, char *argv[])
   if (rclcpp::spin_until_future_complete(node, result_future) !=
       rclcpp::executor::FutureReturnCode::SUCCESS) {
     RCLCPP_ERROR(node->get_logger(), "Failed to get action result");
+    rclcpp::shutdown();
     return 1;
   }
 
@@ -76,12 +80,15 @@ int main(int argc, char *argv[])
       break;
     case rclcpp_action::ResultCode::ABORTED:
       RCLCPP_ERROR(node->get_logger(), "Goal was aborted");
+      rclcpp::shutdown();
       return 1;
     case rclcpp_action::ResultCode::CANCELED:
       RCLCPP_ERROR(node->get_logger(), "Goal was cancelled");
+      rclcpp::shutdown();
       return 1;
     default:
       RCLCPP_ERROR(node->get_logger(), "Unknown action result code");
+      rclcpp::shutdown();
       return 1;
   }
 
