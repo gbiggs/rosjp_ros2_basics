@@ -1,0 +1,8 @@
+# Goal
+string name
+---
+# Result
+string greeting
+---
+# Feedback
+uint8 percent_complete
